@@ -158,6 +158,14 @@ def create_pdf_report_with_logo(report_path, family_name, report_df, total_items
 
     doc.build(elements)
 
+def get_logo_path():
+    if hasattr(sys, '_MEIPASS'):
+        # Esto ocurre cuando el ejecutable corre desde un archivo empaquetado
+        return os.path.join(sys._MEIPASS, 'logo_base64.txt')
+    else:
+        # Esto ocurre cuando corres el script sin empaquetar
+        return 'logo_base64.txt'
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         input_file = input("Por favor, ingresa la ruta completa del archivo Excel: ")
@@ -169,6 +177,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     output_folder = None
-    base64_file = 'logo_base64.txt'  # Archivo con el logo en base64
+    base64_file = get_logo_path()  # Archivo con el logo en base64
 
     generate_reports(input_file, output_folder, base64_file)
