@@ -30,8 +30,12 @@ jobs:
       run: |
         pyinstaller --onefile --add-data "logo_base64.txt;." carrousel.py
 
-    - name: Upload executable
-      uses: actions/upload-artifact@v3  # Use version v3
+    - name: Compress executable to ZIP
+      run: |
+        powershell Compress-Archive -Path dist/carrousel.exe -DestinationPath dist/carrousel.zip
+
+    - name: Upload ZIP
+      uses: actions/upload-artifact@v3
       with:
-        name: Carrousel-Executable
-        path: dist/carrousel.exe
+        name: Carrousel-Executable-ZIP
+        path: dist/carrousel.zip
