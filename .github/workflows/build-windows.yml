@@ -31,7 +31,7 @@ jobs:
         pyinstaller --onefile --add-data "logo_base64.txt;." gloria.py
 
     - name: Upload executable
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3  # Use version v3
       with:
         name: Carrousel-Executable
         path: dist/carrousel.exe
