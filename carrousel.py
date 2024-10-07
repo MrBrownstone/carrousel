@@ -28,11 +28,26 @@ def truncate_text(text, max_length):
         return textwrap.shorten(text, width=max_length, placeholder="...")
     return text
 
+def get_desktop_path():
+    # Usar expanduser para obtener la ruta del home del usuario
+    home = os.path.expanduser("~")
+
+    # Ruta al escritorio estándar
+    desktop_path = os.path.join(home, 'Desktop')
+
+    # Si el escritorio está sincronizado con OneDrive
+    onedrive_desktop_path = os.path.join(home, 'OneDrive', 'Desktop')
+
+    if os.path.exists(onedrive_desktop_path):
+        return onedrive_desktop_path
+    else:
+        return desktop_path
+    
 def generate_reports(input_file, output_folder=None, logo_path=None):
     try:
         if output_folder is None:
-            home = os.path.expanduser("~")
-            desktop = os.path.join(home, "Desktop")
+            # Detecta la ruta correcta del escritorio (local o OneDrive)
+            desktop = get_desktop_path()
             output_folder = os.path.join(desktop, "reportes")
 
         if not os.path.exists(output_folder):
