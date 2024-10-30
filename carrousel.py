@@ -193,5 +193,7 @@ if __name__ == "__main__":
 
     output_folder = None
     base64_file = get_logo_path()  # Archivo con el logo en base64
-
+    
+    # Eliminar comillas dobles alrededor de la ruta del archivo (si las hay)
+    input_file = input_file.strip('"')  
     generate_reports(input_file, output_folder, base64_file)
