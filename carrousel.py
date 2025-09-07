@@ -70,7 +70,7 @@ def generate_reports(input_file, output_folder=None, logo_path=None):
 
             total_items_sold = report_df.iloc[:, 2].sum()
             total_income = report_df.iloc[:, 3].sum()
-            amount_to_collect = total_income * 0.6
+            amount_to_collect = total_income * 0.5
 
             report_path = os.path.join(output_folder, f'Reporte_{name}.pdf')
             create_pdf_report_with_logo(report_path, name, report_df, total_items_sold, total_income, amount_to_collect, logo_path)
