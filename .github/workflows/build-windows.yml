@@ -36,7 +36,7 @@ jobs:
         powershell Compress-Archive -Path dist/carrousel.exe -DestinationPath dist/carrousel.zip
 
     - name: Upload ZIP
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Carrousel-Executable-ZIP
         path: dist/carrousel.zip
