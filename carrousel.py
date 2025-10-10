@@ -148,7 +148,7 @@ def create_pdf_report_with_logo(report_path, family_name, report_df, total_items
         ['Artículos Vendidos:', format_value(total_items_sold)],
         ['Cantidades Vendidas:', format_value(total_items_sold)],
         ['Ingresos Totales:', f'${format_value(total_income)}'],
-        ['A cobrar: 60% del monto total', f'${format_value(amount_to_collect)}'],
+        ['A cobrar: 50% del monto total', f'${format_value(amount_to_collect)}'],
         ['', ''],
         ['Crédito adicional del 15% disponible si decidís reinvertir en productos de Carrousel', ''],
         ['(Este crédito es válido indefinidamente y puede ser utilizado en cualquier momento que encuentres productos de su interés)', '']
