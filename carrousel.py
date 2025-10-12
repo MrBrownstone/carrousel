@@ -111,7 +111,7 @@ def create_pdf_report_with_logo(report_path, family_name, report_df, total_items
     data = [['Proveedora', 'Artículo', 'Nombre de Artículo', 'Cantidad', 'Valor']]
 
     # Separar el código de artículo y el nombre del artículo, y formatear la cantidad y el valor
-    for index, row in report_df.iterrows():
+    for _, row in report_df.iterrows():
         data.append([
             truncate_text(family_name, 20),  # Proveedora (columna A)
             truncate_text(row.iloc[0], 10),  # Código del artículo (columna E)
